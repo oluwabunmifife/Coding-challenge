@@ -2,7 +2,7 @@
 def compress(s):
     # Check if string has more than one character
     if len(s) <= 1:
-        print(s)  # Print out that one character
+        return s  # Print out that one character
     else:
         """Initialize variables"""
         result = []
