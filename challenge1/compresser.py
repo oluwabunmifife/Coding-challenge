@@ -27,4 +27,7 @@ def compress(s):
         return result  # The new result is printed
 
 
-compress("aaabbbcccaaa")
+"""
+The time complexity is O(n) where n is the length of the string.
+The time spent will be based on the length of the string provided.
+"""
