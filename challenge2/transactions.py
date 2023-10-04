@@ -1,4 +1,5 @@
 import requests
+from decouple import config
 
 def print_transfers(transaction_hash):
     api_url = "https://api.etherscan.io/api"
@@ -6,7 +7,7 @@ def print_transfers(transaction_hash):
         "module": "proxy",
         "action": "eth_getTransactionReceipt",
         "txhash": transaction_hash,
-        "apikey": "HQZ6FAVGDFZMYQ7TB6UKEMIKQNG5SKDVHR"
+        "apikey": config("apikey")
     }
 
     response = requests.get(api_url, params=params)
@@ -27,5 +28,5 @@ def print_transfers(transaction_hash):
         }
     ]
 
-transaction_hash = "0xadb8aec59e80db99811ac4a0235efa3e45da32928bcff557998552250fa672eb"
+transaction_hash = config("transaction_hash")
 print_transfers(transaction_hash)
