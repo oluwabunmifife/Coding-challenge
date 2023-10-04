@@ -1,7 +1,6 @@
 import requests
 
 def print_transfers(transaction_hash):
-    # transaction_hash = "0xadb8aec59e80db99811ac4a0235efa3e45da32928bcff557998552250fa672eb"
     api_url = "https://api.etherscan.io/api"
     params = {
         "module": "proxy",
@@ -16,8 +15,17 @@ def print_transfers(transaction_hash):
     a = data["result"]
     fromm = a["from"]
     to = a["to"]
-    # print(data["result"])
-    # print(data)
+    logss = a["logs"]
+    dataa = logss[0]["data"]
+    dataa = int(dataa, 16)
+    
+    return [
+        {
+            "from": fromm,
+            "to": to,
+            "amount": dataa
+        }
+    ]
 
 transaction_hash = "0xadb8aec59e80db99811ac4a0235efa3e45da32928bcff557998552250fa672eb"
 print_transfers(transaction_hash)
