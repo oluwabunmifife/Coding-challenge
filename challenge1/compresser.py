@@ -24,7 +24,7 @@ def compress(s):
         # The loop ends and it appends the last letter and it's count
         result.append(s[i - 1] + str(counter))
         result = "".join(result)  # The list is converted to a string
-        print(result)  # The new result is printed
+        return result  # The new result is printed
 
 
 compress("aaabbbcccaaa")
